@@ -19,7 +19,7 @@ $(function(){
         let vgImg = vg.results[irange].urls.full;
         let urlLink = 'background-image: url(' + vgImg + ')'
         let bodyImg = document.getElementsByTagName('body');
-        console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
+        // console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
     });
 });
 
@@ -32,7 +32,7 @@ $(function(){
         let gkImg = gk.results[irange].urls.full;
         let urlLink = 'background-image: url(' + gkImg + ')'
         let bodyImg = document.getElementsByTagName('body');
-        console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
+        // console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
     });
 });
 
@@ -45,7 +45,7 @@ $(function(){
         let mxImg = mx.results[irange].urls.full;
         let urlLink = 'background-image: url(' + mxImg + ')'
         let bodyImg = document.getElementsByTagName('body');
-        console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
+        // console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
     });
 });
 
@@ -58,7 +58,7 @@ $(function(){
         let hsImg = hs.results[irange].urls.full;
         let urlLink = 'background-image: url(' + hsImg + ')'
         let bodyImg = document.getElementsByTagName('body');
-        console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
+        // console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
     });
 });
 
@@ -71,6 +71,6 @@ $(function(){
         let amImg = am.results[irange].urls.full;
         let urlLink = 'background-image: url(' + amImg + ')'
         let bodyImg = document.getElementsByTagName('body');
-        console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
+        // console.log(bodyImg[0].setAttribute('style', urlLink)); //Need to be linked when this category's clicked
     });
 });
