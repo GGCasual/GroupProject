@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Gameplay Page</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,14 +13,30 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-        .row {
+        img { 
             height: 33vh;
+            width: 33vw;
+            margin: 0px;
+            padding: 0px;
         }
-        #button-container{
-            text-align: center;
-            vertical-align: middle;
+        .col {
+            height: 33vh;
+            width: 33vh;
+            background-color: black;
+            color: white;
+        }
+        #revealed-image-container{
+            height: 100vh;
+            width: 100 vw;
+            background-image: url("images/galaxy.jpg");
+            background-size: 100% 100%
+        }
+        #hider{
+            height: 33vh;
+            width: 33vw;
         }
     </style>
+
 
 </head>
 
@@ -54,32 +71,42 @@
         </div>
     </nav>
 
-    <!-- COLOR SQUARES STARTS HERE -->
-    <div class="container-fluid">
+    <!-- START OF "CARD HIDER" CONTAINER -->
+    <div id="revealed-image-container" class="container-fluid p-0">
         <div class="row">
-            <div id="test" class="col" style="background-color: green"></div>
-            <div class="col" style="background-color: red"></div>
-            <div class="col" style="background-color: blue"></div>
-        </div>
-        <div class="row">
-            <div class="col" style="background-color: blue"></div>
-            <div id="button-container" class="col" style="background-color: green">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" style="margin: 20% 0% 20% 0%" data-toggle="modal" data-target="#exampleModalCenter">
-                        Click to answer question
-                    </button>
+            <div id="hider-1" class="col">
+                hi
             </div>
-            <div class="col" style="background-color: red"></div>
-        </div>
-        <div class="row">
-            <div class="col" style="background-color: red"></div>
-            <div class="col" style="background-color: blue"></div>
-            <div class="col" style="background-color: green"></div>
+            <div id="hider-2" class="col">
+                hi
+            </div>
+            <div id="hider-3" class="col">
+                hi
+            </div>
+            <div class="w-100"></div>
+            <div id="hider-4" class="col">
+                hi
+            </div>
+            <div id="hider-5" class="col">
+                <button id="btnModal" type="button" class="btn btn-primary" style="margin: 20% 0% 20% 0%" data-toggle="modal" data-target="#exampleModalCenter">
+                    Modal button
+                </button>
+            </div>
+            <div id="hider-6" class="col">
+                hi
+            </div>
+            <div class="w-100"></div>
+            <div id="hider-7" class="col">
+                hi
+            </div>
+            <div id="hider-8" class="col">
+                hi
+            </div>
+            <div id="hider-9" class="col">
+                hi
+            </div>
         </div>
     </div>
-
-
-
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -87,30 +114,29 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Question 1</h5>
+                    <h5 class="modal-title" id="Title"> </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <!-- insert questions here -->
-                <div id="question-modal" class="modal-body">
-                    
+                <div id="question" class="modal-body">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-footer" id="modal">
+                    <button data-dismiss="modal" type="button" id="Answer1" class="btn btn-primary"></button>
+                    <button data-dismiss="modal" type="button" id="Answer2" class="btn btn-primary"></button>
+                    <button data-dismiss="modal" type="button" id="Answer3" class="btn btn-primary"></button>
+                    <button data-dismiss="modal" type="button" id="Answer4" class="btn btn-primary"></button>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -121,22 +147,24 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!-- jQuery Minified -->
+    <!-- jquery minified -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-        <script>
-        //ADDS QUESTION TO MODAL
+    <script src="apiscript.js"></script>
+    
+    <!-- <script>
+        $("#hider-1").click(function () {
+            $(this).css("background-color", "transparent")
+        })
         let url = "https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=multiple"
-        $.get(url).done((response) => {
-            $("#question-modal").text(response.results[1].question)
+            $.get(url).done((response) => {
+                var question = (response.results[0].question)
+                $("#hider-1").text(question)
             })
+    </script> -->
 
 
-
-        
-        </script>
 
 </body>
 
-</html>
+</html
