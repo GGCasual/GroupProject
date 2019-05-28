@@ -31,7 +31,7 @@
     #cv-content{
         width: 100%;
         height: 100%;
-        background-color: green;
+        background-color: #379683;
         padding: 0px;
         margin: 0px;
     }
@@ -53,7 +53,12 @@
     #bio-content{
         width: 100%;
         height: 100%;
-        background-color: pink;
+        background-color: #edf5e1;
+        padding: 5%;
+    }
+
+    #hire{
+        text-align: center;
     }
 
     #project-container{
@@ -70,7 +75,7 @@
 
     #project-row{
         height: 100%;
-        background-color: yellow;
+        background-color: #05386b;
         padding: 100px 0px 100px 0px;
         margin: 0px;
         justify-content: space-around;
@@ -83,18 +88,22 @@
         margin: 0px;
     }
 
-    #project-1{
+    .projects{
         height: 100%;
         width: 100%;
         background-color: rgb(110, 108, 235);
+    }
+
+    .project-img{
+        width: 70%;
     }
     </style>
     </head>
 
 <body>
 
-    
-    <nav id="" class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <nav id="" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,7 +142,15 @@
             <div id="bio-container">
                 <!-- bio-content appends here -->
                 <div id="bio-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti tempore delectus reprehenderit aliquid eum repellat, ut accusamus. Facilis ullam sit ratione odio aliquam, obcaecati dolorum nam corporis molestiae aspernatur ab!
+                    <h3>Alfie G Santos IV, esq.</h3>
+                    is the goddam greatest coder you've ever seen. He could code the next Facebook using two sticks and some tinfoil. 
+                    Every single one of his projects has been an unprecedented success, and his peers and colleagues are in constant awe and amazement at his implausible skill.
+                    How did he reach this orgasmic level of programming excellence? One word, my friend: <b>passion</b>. Coding is the only thing he ever thinks about, 
+                    neglecting food, water, and social interaction, surviving solely off of the the nutritious ones and zeroes that flow through his machine and directly 
+                    into his veins. There is only one thing left to say:
+                    <br>
+                    <br>
+                    <h3 id="hire">HIRE. THIS. MAN. NOW.</h3>
                 </div>
             </div>
             <!-- PROJECT CONTAINER -->
@@ -143,16 +160,28 @@
                     <div id="project-row" class="row">
                         <!-- project-1 appends here -->
                         <div id="project-1-button-container" class="col-2 project-button-container">
-                            <div id="project-1">Project 1</div>
+                            <div class="projects text-center" id="project-1">
+                                Blackjack Game
+                                <img class="project-img" src="images/blackjack.png" alt="">
+                            </div>
                         </div>
                         <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div id="project-1">Project 2</div>
+                            <div class="projects text-center" id="project-2">
+                                RPG Game
+                                <img class="project-img" src="images/RPG.png" alt="">
+                            </div>
                         </div>
                         <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div id="project-1">Project 3</div>
+                            <div class="projects text-center" id="project-3">
+                                THIS VERY GAME
+                                <img class="project-img" src="images/trivia.png" alt="">
+                            </div>
                         </div>
                         <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div id="project-1">Project 4</div>
+                            <div class="projects text-center" id="project-4">
+                                The Next Facebook
+                                <img class="project-img" src="images/fb.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
