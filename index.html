@@ -23,17 +23,13 @@
         .col {
             height: 33vh;
             width: 33vh;
-
-            background-color: black;
-            color: white;
-
-
-
+            /* background-color: black; */
+            /* color: white; */
         }
 
-        #revealed-image-container{
+        .revealed-image-container{
             height: 100vh;
-            width: 100 vw;
+            width: 100vw;
             background-image: url("images/galaxy.jpg");
             background-size: 100% 100%
         }
@@ -80,7 +76,7 @@
     </nav>
 
     <!-- START OF "CARD HIDER" CONTAINER -->
-    <div id="revealed-image-container" class="container-fluid p-0">
+    <div class="revealed-image-container container-fluid p-0">
         <div class="row">
             <div id="hider-1" class="col">
                 hi
@@ -159,6 +155,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="script/apiscript.js"></script>
+    <script src="/script/imgapi.js"></script>
+
     
     <!-- <script>
         $("#hider-1").click(function () {
