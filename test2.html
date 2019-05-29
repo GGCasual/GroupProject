@@ -278,20 +278,42 @@ $('.question').click(function(){
         $("#answer3").html(answerArr[2].answer),
         $("#answer4").html(answerArr[3].answer)
 
+        function Question1(){
         $('.btn').on('click', (e)=>{
             answerArr.forEach((value)=>{
                 if(e.target.textContent == value.answer){
                     if(value.isCorrect == true){
                         $(e.target).css('background-color', 'green');
-                        $("#bio-content").show()
-                        // $("#bio-container").html(``);
+                        if (count == 0){
+                            $("#bio-content").show()
+                        }
+                        if (count == 1){
+                            $("#cv-content").show()
+                            
+                        }
+                        if (count == 2){
+                            $("#project-content").show()
+                            
+                        }
+                        if (count > 2){
+                            $(`#project-${count-2}`).show()
+                            
+                        }
+                        count++
+                        $("#close").click(function(){
+                            $(".answer").css('background-color', 'blue')
+                        })
                     }
                     else{$(e.target).css("background-color", "red")}
                 }
+
             })
             })
-        $("#l")
-    })
+        }
+
+
+Question1()
+})
 })
     </script>
 </body>
