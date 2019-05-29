@@ -12,7 +12,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-        body{
+    body{
         background-image: url("") 
     }
 
@@ -51,7 +51,7 @@
     #bio-content{
         width: 100%;
         height: 100%;
-        /* background-color: #edf5e1; */
+        background-color: #edf5e1;
         padding: 5%;
     }
 
@@ -97,46 +97,101 @@
         width: 70%;
     }
     </style>
-</head>
+    </head>
 
 <body>
 
 
-
-    <!-- NAVBAR -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- MODAL TRIGGER -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
-            Click for a Question
+    <nav id="" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button type="button" id="modal-trigger" class="btn btn-primary question" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+                    Click for a Question
+                </button>
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- navbar content appends here -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Projects</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-            <!-- CV CONTAINER -->
-            <div id="cv-container" class="col-3">
-                <!-- cv-content appends here -->
-
-            </div>
-            <!-- Column that stores the sections on the right-hand side -->
-            <div id="right-container" class="col">
-                <!-- BIO CONTAINER -->
-                <div id="bio-container">
-                    <!-- bio-content appends here -->
-
-                </div>
-                <!-- PROJECT CONTAINER -->
-                <div id="project-container">
-                    <!-- project-content appends here -->
-
-                </div>
-
+<div class="container-fluid">
+    <div class="row">
+        <!-- CV CONTAINER -->
+        <div id="cv-container" class="col-3">
+            <!-- cv-content appends here -->
+            <div id="cv-content" class="col text-center my-auto">
+                <img id="cv-image" src="images/cv.jpg" alt="Image of a CV">
             </div>
         </div>
+        <!-- Column that stores the sections on the right-hand side -->
+        <div id="right-container" class="col">
+            <!-- BIO CONTAINER -->
+            <div id="bio-container">
+                <!-- bio-content appends here -->
+                <div id="bio-content">
+                    <h3>Alfie G Santos IV, esq.</h3>
+                    is the goddam greatest coder you've ever seen. He could code the next Facebook using two sticks and some tinfoil. 
+                    Every single one of his projects has been an unprecedented success, and his peers and colleagues are in constant awe and amazement at his implausible skill.
+                    How did he reach this orgasmic level of programming excellence? One word, my friend: <b>passion</b>. Coding is the only thing he ever thinks about, 
+                    neglecting food, water, and social interaction, surviving solely off of the the nutritious ones and zeroes that flow through his machine and directly 
+                    into his veins. There is only one thing left to say:
+                    <br>
+                    <br>
+                    <h3 id="hire">HIRE. THIS. MAN. NOW.</h3>
+                </div>
+            </div>
+            <!-- PROJECT CONTAINER -->
+            <div id="project-container">
+                <!-- project-content appends here -->
+                <div id="project-content">
+                    <div id="project-row" class="row">
+                        <!-- project-1 appends here -->
+                        <div id="project-1-button-container" class="col-2 project-button-container">
+                            <div class="projects text-center" id="project-1">
+                                Blackjack Game
+                                <img class="project-img" src="images/blackjack.png" alt="">
+                            </div>
+                        </div>
+                        <div id="project-2-button-container" class="col-2 project-button-container">
+                            <div class="projects text-center" id="project-2">
+                                RPG Game
+                                <img class="project-img" src="images/RPG.png" alt="">
+                            </div>
+                        </div>
+                        <div id="project-2-button-container" class="col-2 project-button-container">
+                            <div class="projects text-center" id="project-3">
+                                THIS VERY GAME
+                                <img class="project-img" src="images/trivia.png" alt="">
+                            </div>
+                        </div>
+                        <div id="project-2-button-container" class="col-2 project-button-container">
+                            <div class="projects text-center" id="project-4">
+                                The Next Facebook
+                                <img class="project-img" src="images/fb.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
-
-
+</div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -156,14 +211,15 @@
                 <div class="modal-footer answersDiv">
                     <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="answer1" class="btn btn-primary answer wrong">Answer 1</button>
-                    <button type="button" id="correct-answer" class="btn btn-primary answer">Correct Answer</button>
+                    <button type="button" id="answer4" class="btn btn-primary answer">Correct Answer</button>
                     <button type="button" id="answer2" class="btn btn-primary answer wrong">Answer 2</button>
                     <button type="button" id="answer3" class="btn btn-primary answer wrong">Answer 3</button>
-                    <button type="button" id="new-question" class="btn btn-primary">New Question</button>
+                    <!-- <button type="button" id="new-question" class="btn btn-primary question">New Question</button> -->
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Optional JavaScript -->
@@ -180,352 +236,85 @@
     <!-- jQuery minified -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
+    
     <script>
+let count=0;
+$("#bio-content").hide()
+$("#cv-content").hide()
+$("#project-content").hide()
+$("#project-1").hide()
+$("#project-2").hide()
+$("#project-3").hide()
+$("#project-4").hide()
+
+function shuffleArray(array) {
+   for (var i = array.length - 1; i > 0; i--) {
+       var j = Math.floor(Math.random() * (i + 1));
+       var temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+   return array;
+}
 
 
+
+
+
+$('.question').click(function(){
+    $.get(`https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=multiple`)
+    .done(function (it){
+        let question = it.results[count].question;
+        let answer1 = {answer: it.results[count].incorrect_answers[0], isCorrect: false};
+        let answer2 = {answer: it.results[count].incorrect_answers[1], isCorrect: false};
+        let answer3 = {answer: it.results[count].incorrect_answers[2], isCorrect: false};
+        let answer4 = {answer: it.results[count].correct_answer, isCorrect: true};
         
-        
+        let answerArr = [answer1, answer2, answer3, answer4]
+        shuffleArray(answerArr)
+        $("#question-area").html(question),
+        $("#answer1").html(answerArr[0].answer),
+        $("#answer2").html(answerArr[1].answer),
+        $("#answer3").html(answerArr[2].answer),
+        $("#answer4").html(answerArr[3].answer)
 
-
-
-
-
-
-function Question1(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer1").text(response.results[1].incorrect_answers[0])
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-                $close = $("#close").detach()  //hides but does not remove Close button from DOM. This allows us to reveal it when the user clicks the correct answer without generating a new, dynamic close button
-                $newQuestion = $("#new-question").detach() //hides but does not remove Close button from DOM. This allows us to reveal it when the user clicks the correct answer without generating a new, dynamic close button
-            })
-        
-
-
-
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<div id="bio-content">
-                    <h3>Alfie G Santos IV, esq.</h3>
-                    is the goddam greatest coder you've ever seen. He could code the next Facebook using two sticks and some tinfoil. 
-                    Every single one of his projects has been an unprecedented success, and his peers and colleagues are in constant awe and amazement at his implausible skill.
-                    How did he reach this orgasmic level of programming excellence? One word, my friend: <b>passion</b>. Coding is the only thing he ever thinks about, 
-                    neglecting food, water, and social interaction, surviving solely off of the the nutritious ones and zeroes that flow through his machine and directly 
-                    into his veins. There is only one thing left to say:
-                    <br>
-                    <br>
-                    <h3 id="hire">HIRE. THIS. MAN. NOW.</h3>
-                </div>`)
-                //Append segment to page 
-                $("#bio-container").html(`<div id="bio-content">
-                    <h3>Alfie G Santos IV, esq.</h3>
-                    is the goddam greatest coder you've ever seen. He could code the next Facebook using two sticks and some tinfoil. 
-                    Every single one of his projects has been an unprecedented success, and his peers and colleagues are in constant awe and amazement at his implausible skill.
-                    How did he reach this orgasmic level of programming excellence? One word, my friend: <b>passion</b>. Coding is the only thing he ever thinks about, 
-                    neglecting food, water, and social interaction, surviving solely off of the the nutritious ones and zeroes that flow through his machine and directly 
-                    into his veins. There is only one thing left to say:
-                    <br>
-                    <br>
-                    <h3 id="hire">HIRE. THIS. MAN. NOW.</h3>
-                </div>`);
-                $(".modal-footer").append($close)
-            })
-
-                //WHEN YOU CLICK ON A WRONG ANSWER
-            $(".wrong").click(function(){
-                $(".modal-title").text("WRONG ANSWER - Try Again")
-
+        function Question1(){
+        $('.btn').on('click', (e)=>{
+            answerArr.forEach((value)=>{
+                if(e.target.textContent == value.answer){
+                    if(value.isCorrect == true){
+                        $(e.target).css('background-color', 'green');
+                        if (count == 0){
+                            $("#bio-content").show()
+                        }
+                        if (count == 1){
+                            $("#cv-content").show()
+                            
+                        }
+                        if (count == 2){
+                            $("#project-content").show()
+                            
+                        }
+                        if (count > 2){
+                            $(`#project-${count-2}`).show()
+                            
+                        }
+                        count++
+                        $("#close").click(function(){
+                            $(".answer").css('background-color', 'blue')
+                        })
+                    }
+                    else{$(e.target).css("background-color", "red")}
+                }
 
             })
-
-
-            //WHEN YOU CLICK CLOSE
-            $("#close").click(function(){
-                Question2()
             })
+        }
 
-
-
-            
-    }   
-
-function Question2(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer1").text(response.results[1].incorrect_answers[0])
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-                $close = $("#close").detach()
-
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`
-                <img src="images/cv.jpg" alt="Image of a CV">
-            `)
-                //Append segment to page 
-                $("#cv-container").html(`<div id="cv-content" class="col text-center my-auto">
-                <img id="cv-image" src="images/cv.jpg" alt="Image of a CV">
-            </div>`);
-            })
-
-                //WHEN YOU CLICK CLOSE
-                $("#close").click(function(){
-                Question3()
-                })
-
-    }   
-
-function Question3(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<div id="project-1-button-container">
-                            <div class="projects text-center" id="project-1">
-                                A Blackjack Game using Javascript. The game deals cards to a player and a dealer. Whoever gets closer to 21 wins!
-                                <img class="project-img" src="images/blackjack.png" alt="">
-                            </div>
-                        </div>`)
-                //Append segment to page 
-                $("#project-container").html(`
-                <div id="project-content">
-                    <div id="project-row" class="row">
-                        <!-- project-1 appends here -->
-                        <div id="project-1-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-1">
-                                Blackjack Game
-                                <img class="project-img" src="images/blackjack.png" alt="">
-                            </div>
-                        </div>
-                        `);
-            })
-                //WHEN YOU CLICK CLOSE
-                $("#close").click(function(){
-                    Question4()
-                })
-
-    }   
-function Question4(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-2">
-                                RPG Game
-                                <img class="project-img" src="images/RPG.png" alt="">
-                            </div>
-                        </div>`)
-                //Append segment to page 
-                $("#project-container").html(`<div id="project-content">
-                    <div id="project-row" class="row">
-                        <!-- project-1 appends here -->
-                        <div id="project-1-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-1">
-                                Blackjack Game
-                                <img class="project-img" src="images/blackjack.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-2">
-                                RPG Game
-                                <img class="project-img" src="images/RPG.png" alt="">
-                            </div>
-                        </div>
-                        `);
-            })
-
-            //WHEN YOU CLICK CLOSE
-            $("#close").click(function(){
-                Question5()
-            })
-
-    }   
-function Question5(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-3">
-                                THIS VERY GAME
-                                <img class="project-img" src="images/trivia.png" alt="">
-                            </div>
-                        </div>`)
-                //Append segment to page 
-                $("#project-container").html(`<div id="project-content">
-                    <div id="project-row" class="row">
-                        <!-- project-1 appends here -->
-                        <div id="project-1-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-1">
-                                Blackjack Game
-                                <img class="project-img" src="images/blackjack.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-2">
-                                RPG Game
-                                <img class="project-img" src="images/RPG.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-3">
-                                THIS VERY GAME
-                                <img class="project-img" src="images/trivia.png" alt="">
-                            </div>
-                        </div>
-                        `);
-            })
-
-            //WHEN YOU CLICK CLOSE
-            $("#close").click(function(){
-                Question6()
-            })
-
-    }   
-function Question6(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-4">
-                                The Next Facebook
-                                <img class="project-img" src="images/fb.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>`)
-                //Append segment to page 
-                $("#project-container").html(`<div id="project-content">
-                    <div id="project-row" class="row">
-                        <!-- project-1 appends here -->
-                        <div id="project-1-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-1">
-                                Blackjack Game
-                                <img class="project-img" src="images/blackjack.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-2">
-                                RPG Game
-                                <img class="project-img" src="images/RPG.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-3">
-                                THIS VERY GAME
-                                <img class="project-img" src="images/trivia.png" alt="">
-                            </div>
-                        </div>
-                        <div id="project-2-button-container" class="col-2 project-button-container">
-                            <div class="projects text-center" id="project-4">
-                                The Next Facebook
-                                <img class="project-img" src="images/fb.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>`);
-            })
-
-            //WHEN YOU CLICK CLOSE
-            $("#close").click(function(){
-                Question7()
-            })
-
-    }   
-function Question7(){
-            //ADDS QUESTION TO MODAL
-            let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-            $.get(url).done((response) => {
-                $("#question-area").text(response.results[1].question)
-                $("#answer2").text(response.results[1].incorrect_answers[1])
-                $("#answer3").text(response.results[1].incorrect_answers[2])
-                $("#correct-answer").text(response.results[1].correct_answer)
-            })
-        
-            //WHEN YOU CLICK ON CORRECT ANSWER
-            $("#correct-answer").click(function() {
-                //Append page segment to modal, replacing question
-                $("#question-area").html(`<p style="font-size=50px">YOU WIN!</p>`)
-                //Append segment to page 
-                $("#navbar").html(`<a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">CV</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Projects</a>
-                        </li>
-                    </ul>
-                </div>`);
-            })
-
-            //WHEN YOU CLICK CLOSE
-            $("#close").click(function(){
-                Question8()
-            })
-
-    }   
 
 Question1()
-
-
+})
+})
     </script>
 </body>
 

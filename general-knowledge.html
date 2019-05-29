@@ -262,7 +262,7 @@ function shuffleArray(array) {
 
 
 $('.question').click(function(){
-    $.get(`https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple`)
+    $.get(`https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple`)
     .done(function (it){
         let question = it.results[count].question;
         let answer1 = {answer: it.results[count].incorrect_answers[0], isCorrect: false};
