@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>History</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class="col-4"></div>
+            <div id="question-container" class='col-4 text-center'>
+                <button id="click-me" style="margin: 50% 0% 50% 0%">Click me to get a question</button>
+                <div id="question-card" class="card col" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Question</h5>
+                        <p id="question" class="card-text"></p>
+                    </div>
+                    <div class="btn-group list-group list-group-flush">
+                        <button id="answer1" class="btn btn-primary answer mb-2"></button>
+                        <button id="answer2" class="btn btn-primary answer mb-2"></button>
+                        <button id="answer3" class="btn btn-primary answer mb-2"></button>
+                        <button id="answer4" class="btn btn-primary answer mb-2"></button>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+
+
+$('#question-card').hide()
+$('#click-me').on('click', ()=>{
+    $('#question-card').show()
+    $("#click-me").hide()
+})
+
+// $("#click-me").click(function(){
+//     $("#question-container").html(`<div id="question-card" class="card col" style="width: 18rem;">
+//                     <div class="card-body">
+//                         <h5 class="card-title">Question</h5>
+//                         <p id="question" class="card-text"></p>
+//                     </div>
+//                     <div class="btn-group list-group list-group-flush">
+//                         <button id="answer1" class="btn btn-primary answer mb-2"></button>
+//                         <button id="answer2" class="btn btn-primary answer mb-2"></button>
+//                         <button id="answer3" class="btn btn-primary answer mb-2"></button>
+//                         <button id="answer4" class="btn btn-primary answer mb-2"></button>
+//                     </div>
+//                     <div class="card-body">
+//                         <button class='new-question btn btn-warning'>Different Question </button>
+//                     </div>
+//                 </div>`)
+// })
+
+
+
+
+
+let count = 0
+let modal = $("btn-group").html()
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+$('#click-me').click(function(){
+    $.get(`https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple`)
+    .done(function (it){
+        let question = it.results[count].question;
+        let answer1 = it.results[count].incorrect_answers[0];
+        let answer2 = it.results[count].incorrect_answers[1];
+        let answer3 = it.results[count].incorrect_answers[2];
+        let answer4 = it.results[count].correct_answer;
+        
+        let answerArr = [answer1, answer2, answer3, answer4]
+        shuffleArray(answerArr)
+        
+        $("#question").html(question),
+        $("#answer1").html(answerArr[0]),
+        $("#answer2").html(answerArr[1]),
+        $("#answer3").html(answerArr[2]),
+        $("#answer4").html(answerArr[3])
+    })
+    // $('.answer').on('click', (event)=>{
+    //     if ($(event.answer) === it.results[count].correct_answer){
+    //         $(event.currentTarget).toggleClass('.btn-success')
+    //     }
+    // })
+
+    $(".answer").click(function(){
+        if($(this).value === it.results[count].correct_answer){
+        $(this).css("background-color", "green")
+        }
+    })
+})
+    </script>
+</body>
+</html>

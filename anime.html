@@ -23,7 +23,6 @@
 
     #cv-container{
         height: 100%;
-        border: 2px solid black;
         padding: 0px;
         margin: 0px;
     }
@@ -46,7 +45,6 @@
     #bio-container{
         width: 100%;
         height: 50%;
-        border: 2px solid black;
 
     }
 
@@ -64,7 +62,6 @@
     #project-container{
         width: 100%;
         height: 50%;
-        border: 2px solid black;
 
     }
 
@@ -106,6 +103,9 @@
 
 
     <nav id="" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button type="button" id="modal-trigger" class="btn btn-primary question" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+                    Click for a Question
+                </button>
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -193,6 +193,32 @@
     </div>
 </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Question</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body" id="question-area">
+                    <!-- append question here -->
+                    ...
+                </div>
+                <div class="modal-footer answersDiv">
+                    <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="answer1" class="btn btn-primary answer wrong">Answer 1</button>
+                    <button type="button" id="answer4" class="btn btn-primary answer">Correct Answer</button>
+                    <button type="button" id="answer2" class="btn btn-primary answer wrong">Answer 2</button>
+                    <button type="button" id="answer3" class="btn btn-primary answer wrong">Answer 3</button>
+                    <!-- <button type="button" id="new-question" class="btn btn-primary question">New Question</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -212,22 +238,83 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     
     <script>
-        // $(document).keypress("q", function () {
-        //     $("#cv-container").append(`cv-content here`)
-        // })
+let count=0;
+$("#bio-content").hide()
+$("#cv-content").hide()
+$("#project-content").hide()
+$("#project-1").hide()
+$("#project-2").hide()
+$("#project-3").hide()
+$("#project-4").hide()
 
-        $(document).keydown(function (keyPressed) {
-                if (keyPressed.keyCode == 49) {
-                    $("#cv-container").append(`<div id="cv-content" class="col text-center my-auto">
-                        <img id="cv-image" src="images/cv.jpg" alt="Image of a CV">
-                        </div>`);
+function shuffleArray(array) {
+   for (var i = array.length - 1; i > 0; i--) {
+       var j = Math.floor(Math.random() * (i + 1));
+       var temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+   return array;
+}
+
+
+
+
+
+$('.question').click(function(){
+    $.get(`https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple`)
+    .done(function (it){
+        let question = it.results[count].question;
+        let answer1 = {answer: it.results[count].incorrect_answers[0], isCorrect: false};
+        let answer2 = {answer: it.results[count].incorrect_answers[1], isCorrect: false};
+        let answer3 = {answer: it.results[count].incorrect_answers[2], isCorrect: false};
+        let answer4 = {answer: it.results[count].correct_answer, isCorrect: true};
+        
+        let answerArr = [answer1, answer2, answer3, answer4]
+        shuffleArray(answerArr)
+        $("#question-area").html(question),
+        $("#answer1").html(answerArr[0].answer),
+        $("#answer2").html(answerArr[1].answer),
+        $("#answer3").html(answerArr[2].answer),
+        $("#answer4").html(answerArr[3].answer)
+
+        function Question1(){
+        $('.btn').on('click', (e)=>{
+            answerArr.forEach((value)=>{
+                if(e.target.textContent == value.answer){
+                    if(value.isCorrect == true){
+                        $(e.target).css('background-color', 'green');
+                        if (count == 0){
+                            $("#bio-content").show()
+                        }
+                        if (count == 1){
+                            $("#cv-content").show()
+                            
+                        }
+                        if (count == 2){
+                            $("#project-content").show()
+                            
+                        }
+                        if (count > 2){
+                            $(`#project-${count-2}`).show()
+                            
+                        }
+                        count++
+                        $("#close").click(function(){
+                            $(".answer").css('background-color', 'blue')
+                        })
                     }
-                if (keyPressed.keyCode == 50) {
-                    $("#bio-container").append(`<div id="bio-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti tempore delectus reprehenderit aliquid eum repellat, ut accusamus. Facilis ullam sit ratione odio aliquam, obcaecati dolorum nam corporis molestiae aspernatur ab!
-                </div>`);
-                    }
-            });
+                    else{$(e.target).css("background-color", "red")}
+                }
+
+            })
+            })
+        }
+
+
+Question1()
+})
+})
     </script>
 </body>
 
